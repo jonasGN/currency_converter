@@ -1,5 +1,6 @@
 import 'package:conversor_moedas/components/ConverterSection.dart';
 import 'package:conversor_moedas/components/MainCard.dart';
+import 'package:conversor_moedas/layout/colors.dart';
 import 'package:conversor_moedas/services/api.dart';
 import 'package:flutter/material.dart';
 
@@ -49,7 +50,7 @@ class _HomeState extends State<Home> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Color(0xffF9FAFB), // [pageBackground]
+      backgroundColor: MyColors.PAGE_BACKGROUND,
       appBar: AppBar(
         centerTitle: true,
         backgroundColor: Colors.transparent,
@@ -57,7 +58,7 @@ class _HomeState extends State<Home> {
         title: Text(
           'Conversor monetário',
           style: TextStyle(
-            color: Color(0xff757F8C), // [black]
+            color: MyColors.BLACK,
             fontSize: 20, // [font]
           ),
         ),
@@ -65,7 +66,7 @@ class _HomeState extends State<Home> {
           IconButton(
               icon: Icon(
                 Icons.settings,
-                color: Color(0xff757F8C), // [black]
+                color: MyColors.BLACK,
                 size: 24,
               ),
               onPressed: null),

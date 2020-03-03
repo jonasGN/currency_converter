@@ -1,3 +1,4 @@
+import 'package:conversor_moedas/layout/colors.dart';
 import 'package:flutter/material.dart';
 
 const double borderRadius = 10.0;
@@ -27,14 +28,14 @@ class MainCard extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       decoration: BoxDecoration(
-        color: Color(0xff54D3AD), // [green]
+        color: MyColors.GREEN,
         borderRadius: BorderRadius.circular(15),
       ),
       child: Column(
         children: <Widget>[
           Container(
             decoration: BoxDecoration(
-              color: Colors.white, // [white]
+              color: MyColors.WHITE,
               borderRadius: BorderRadius.circular(15),
             ),
             padding: EdgeInsets.all(18),
@@ -53,7 +54,7 @@ class MainCard extends StatelessWidget {
                     Text(
                       '$prefix - ',
                       style: TextStyle(
-                        color: Color(0xffA6AAB4), // [blackOpacity]
+                        color: MyColors.BLACK_OPACITY,
                         fontSize: 30,
                         fontWeight: FontWeight.w500, // [medium]
                       ),
@@ -65,30 +66,27 @@ class MainCard extends StatelessWidget {
                         keyboardType:
                             TextInputType.numberWithOptions(decimal: true),
                         onChanged: onChanged,
-                        cursorColor: Color(0xff54D3AD), // [green]
+                        cursorColor: MyColors.GREEN,
                         style: TextStyle(
-                          color: Color(0xff757F8C),
+                          color: MyColors.BLACK,
                           fontSize: 30,
                           fontWeight: FontWeight.w500, // [medium]
                         ),
-
                         decoration: InputDecoration(
                           focusedBorder: OutlineInputBorder(
                             borderSide: BorderSide(
-                              color: Color(0xffE1E5F0), // [secondary]
+                              color: MyColors.SECONDARY,
                             ),
                             borderRadius: BorderRadius.circular(borderRadius),
                           ),
-
                           enabledBorder: OutlineInputBorder(
                             borderSide: BorderSide(
-                              color: Color(0xffF2F6FB), // [primary]
+                              color: MyColors.PRIMARY,
                             ),
                             borderRadius: BorderRadius.circular(borderRadius),
                           ),
-
                           filled: true,
-                          fillColor: Color(0xffF2F6FB), // [primary]
+                          fillColor: MyColors.PRIMARY,
                           contentPadding:
                               EdgeInsets.symmetric(horizontal: 15, vertical: 6),
                         ),
@@ -114,7 +112,7 @@ Widget inputTitle(String title) {
       title,
       textAlign: TextAlign.start,
       style: TextStyle(
-        color: Color(0xff757F8C), // [black]
+        color: MyColors.BLACK,
         fontSize: 14,
         fontWeight: FontWeight.w400, // [regular]
       ),
@@ -133,7 +131,7 @@ class CurrencyOption extends StatelessWidget {
       padding: EdgeInsets.symmetric(horizontal: 15, vertical: 5),
       margin: EdgeInsets.only(bottom: 15),
       decoration: BoxDecoration(
-        color: Color(0xffF2F6FB), // [primary]
+        color: MyColors.PRIMARY,
         borderRadius: BorderRadius.circular(borderRadius),
       ),
       child: Row(
@@ -153,7 +151,7 @@ class CurrencyOption extends StatelessWidget {
             child: Text(
               'USD',
               style: TextStyle(
-                color: Color(0xff757F8C),
+                color: MyColors.BLACK,
                 fontSize: 17,
                 fontWeight: FontWeight.w500, // [medium]
               ),
@@ -163,7 +161,7 @@ class CurrencyOption extends StatelessWidget {
             icon: Icon(Icons.keyboard_arrow_down),
             padding: EdgeInsets.all(0),
             onPressed: onPressed,
-            color: Color(0xff757F8C), // [black]
+            color: MyColors.BLACK,
             iconSize: 24,
           )
         ],
@@ -176,7 +174,7 @@ Widget comparisonContainer({Widget child}) {
   return Container(
     padding: EdgeInsets.symmetric(horizontal: 18, vertical: 10),
     decoration: BoxDecoration(
-      color: Color(0xff54D3AD), // [green]
+      color: MyColors.GREEN,
       borderRadius: BorderRadius.only(
         bottomLeft: Radius.circular(15.0),
         bottomRight: Radius.circular(15.0),
@@ -189,7 +187,7 @@ Widget comparisonContainer({Widget child}) {
           padding: EdgeInsets.symmetric(horizontal: 10),
           child: Icon(
             Icons.keyboard_backspace,
-            color: Colors.white,
+            color: MyColors.WHITE,
             size: 24,
           ),
         ),

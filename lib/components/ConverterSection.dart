@@ -1,3 +1,4 @@
+import 'package:conversor_moedas/layout/colors.dart';
 import 'package:flutter/material.dart';
 
 // TODO: animate arrow on the left, rotating 180° and come back to original position
@@ -19,12 +20,12 @@ class ConverterSection extends StatelessWidget {
             padding: EdgeInsets.all(4),
             margin: EdgeInsets.only(right: 10),
             decoration: BoxDecoration(
-              color: Color(0xffE1E5F0), // [secondary]
+              color: MyColors.SECONDARY,
               borderRadius: BorderRadius.circular(8),
             ),
             child: Icon(
               Icons.arrow_downward,
-              color: Color(0xff757F8C), // [black]
+              color: MyColors.BLACK,
               size: 20,
             ),
           ),
@@ -34,7 +35,7 @@ class ConverterSection extends StatelessWidget {
               style: TextStyle(
                   fontSize: 20,
                   fontWeight: FontWeight.w400,
-                  color: Color(0xff757F8C) // [black]
+                  color: MyColors.BLACK,
                   ),
             ),
           ),
@@ -43,12 +44,12 @@ class ConverterSection extends StatelessWidget {
             child: Container(
               padding: EdgeInsets.all(13),
               decoration: BoxDecoration(
-                color: Color(0xff54D3AD), // [green]
+                color: MyColors.GREEN,
                 borderRadius: BorderRadius.circular(16),
               ),
               child: Icon(
                 Icons.swap_vert,
-                color: Colors.white,
+                color: MyColors.WHITE,
                 size: 30,
               ),
             ),
