@@ -1,3 +1,4 @@
+import 'package:conversor_moedas/components/currencyButton.dart';
 import 'package:conversor_moedas/layout/colors.dart';
 import 'package:flutter/material.dart';
 
@@ -45,7 +46,7 @@ class MainCard extends StatelessWidget {
                 //
                 inputTitle('Selecione sua moeda'),
                 //
-                CurrencyOption(),
+                CurrencyButton(),
                 //
                 inputTitle('Informe um valor'),
                 //
@@ -118,56 +119,6 @@ Widget inputTitle(String title) {
       ),
     ),
   );
-}
-
-class CurrencyOption extends StatelessWidget {
-  final Function onPressed;
-
-  CurrencyOption({this.onPressed});
-
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      padding: EdgeInsets.symmetric(horizontal: 15, vertical: 5),
-      margin: EdgeInsets.only(bottom: 15),
-      decoration: BoxDecoration(
-        color: MyColors.PRIMARY,
-        borderRadius: BorderRadius.circular(borderRadius),
-      ),
-      child: Row(
-        children: <Widget>[
-          Container(
-            margin: EdgeInsets.only(left: 5, right: 10),
-            decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(5),
-              color: Colors.amber,
-            ),
-            child: SizedBox(
-              height: 20,
-              width: 32,
-            ),
-          ),
-          Expanded(
-            child: Text(
-              'USD',
-              style: TextStyle(
-                color: MyColors.BLACK,
-                fontSize: 17,
-                fontWeight: FontWeight.w500, // [medium]
-              ),
-            ),
-          ),
-          IconButton(
-            icon: Icon(Icons.keyboard_arrow_down),
-            padding: EdgeInsets.all(0),
-            onPressed: onPressed,
-            color: MyColors.BLACK,
-            iconSize: 24,
-          )
-        ],
-      ),
-    );
-  }
 }
 
 Widget comparisonContainer({Widget child}) {
