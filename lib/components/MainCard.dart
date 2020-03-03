@@ -6,74 +6,100 @@ class MainCard extends StatelessWidget {
   final TextEditingController controller;
   final Function onChanged;
   final String prefix;
+  final bool isBackground;
 
-  MainCard({this.controller, this.onChanged, this.prefix = 'U\$'});
+  MainCard({
+    this.controller,
+    this.onChanged,
+    this.prefix = 'U\$',
+    this.isBackground = false,
+  });
+
+  Widget renderBackground() {
+    if (isBackground) {
+      return comparisonContainer();
+    } else {
+      return null;
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
     return Container(
       decoration: BoxDecoration(
-        color: Colors.white, // [white]
+        color: Color(0xff54D3AD), // [green]
         borderRadius: BorderRadius.circular(15),
       ),
-      padding: EdgeInsets.all(18),
       child: Column(
-        crossAxisAlignment: CrossAxisAlignment.stretch,
         children: <Widget>[
-          //
-          inputTitle('Selecione sua moeda'),
-          //
-          CurrencyOption(),
-          //
-          inputTitle('Informe um valor'),
-          //
-          Row(
-            children: <Widget>[
-              Text(
-                '$prefix - ',
-                style: TextStyle(
-                  color: Color(0xffA6AAB4), // [blackOpacity]
-                  fontSize: 30,
-                  fontWeight: FontWeight.w500, // [medium]
-                ),
-              ),
-              Expanded(
-                child: TextField(
-                  autofocus: true,
-                  controller: controller,
-                  keyboardType: TextInputType.numberWithOptions(decimal: true),
-                  onChanged: onChanged,
-                  cursorColor: Color(0xff54D3AD), // [green]
-                  style: TextStyle(
-                    color: Color(0xff757F8C),
-                    fontSize: 30,
-                    fontWeight: FontWeight.w500, // [medium]
-                  ),
-
-                  decoration: InputDecoration(
-                    focusedBorder: OutlineInputBorder(
-                      borderSide: BorderSide(
-                        color: Color(0xffE1E5F0), // [secondary]
+          Container(
+            decoration: BoxDecoration(
+              color: Colors.white, // [white]
+              borderRadius: BorderRadius.circular(15),
+            ),
+            padding: EdgeInsets.all(18),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.stretch,
+              children: <Widget>[
+                //
+                inputTitle('Selecione sua moeda'),
+                //
+                CurrencyOption(),
+                //
+                inputTitle('Informe um valor'),
+                //
+                Row(
+                  children: <Widget>[
+                    Text(
+                      '$prefix - ',
+                      style: TextStyle(
+                        color: Color(0xffA6AAB4), // [blackOpacity]
+                        fontSize: 30,
+                        fontWeight: FontWeight.w500, // [medium]
                       ),
-                      borderRadius: BorderRadius.circular(borderRadius),
                     ),
+                    Expanded(
+                      child: TextField(
+                        autofocus: true,
+                        controller: controller,
+                        keyboardType:
+                            TextInputType.numberWithOptions(decimal: true),
+                        onChanged: onChanged,
+                        cursorColor: Color(0xff54D3AD), // [green]
+                        style: TextStyle(
+                          color: Color(0xff757F8C),
+                          fontSize: 30,
+                          fontWeight: FontWeight.w500, // [medium]
+                        ),
 
-                    enabledBorder: OutlineInputBorder(
-                      borderSide: BorderSide(
-                        color: Color(0xffF2F6FB), // [primary]
+                        decoration: InputDecoration(
+                          focusedBorder: OutlineInputBorder(
+                            borderSide: BorderSide(
+                              color: Color(0xffE1E5F0), // [secondary]
+                            ),
+                            borderRadius: BorderRadius.circular(borderRadius),
+                          ),
+
+                          enabledBorder: OutlineInputBorder(
+                            borderSide: BorderSide(
+                              color: Color(0xffF2F6FB), // [primary]
+                            ),
+                            borderRadius: BorderRadius.circular(borderRadius),
+                          ),
+
+                          filled: true,
+                          fillColor: Color(0xffF2F6FB), // [primary]
+                          contentPadding:
+                              EdgeInsets.symmetric(horizontal: 15, vertical: 6),
+                        ),
                       ),
-                      borderRadius: BorderRadius.circular(borderRadius),
                     ),
-
-                    filled: true,
-                    fillColor: Color(0xffF2F6FB), // [primary]
-                    contentPadding:
-                        EdgeInsets.symmetric(horizontal: 15, vertical: 6),
-                  ),
+                  ],
                 ),
-              ),
-            ],
+              ],
+            ),
           ),
+          Container(child: renderBackground()),
         ],
       ),
     );
@@ -144,4 +170,42 @@ class CurrencyOption extends StatelessWidget {
       ),
     );
   }
+}
+
+Widget comparisonContainer({Widget child}) {
+  return Container(
+    padding: EdgeInsets.symmetric(horizontal: 18, vertical: 10),
+    decoration: BoxDecoration(
+      color: Color(0xff54D3AD), // [green]
+      borderRadius: BorderRadius.only(
+        bottomLeft: Radius.circular(15.0),
+        bottomRight: Radius.circular(15.0),
+      ),
+    ),
+    child: Row(
+      children: <Widget>[
+        comparisonText('1 USD'),
+        Padding(
+          padding: EdgeInsets.symmetric(horizontal: 10),
+          child: Icon(
+            Icons.keyboard_backspace,
+            color: Colors.white,
+            size: 24,
+          ),
+        ),
+        comparisonText('4 BRL'),
+      ],
+    ),
+  );
+}
+
+Widget comparisonText(String title) {
+  return Text(
+    title,
+    style: TextStyle(
+      color: Colors.white,
+      fontSize: 15,
+      fontWeight: FontWeight.w400,
+    ),
+  );
 }

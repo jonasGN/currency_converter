@@ -1,6 +1,6 @@
 # Currency converter
 
-[![License](https://img.shields.io/badge/License-Apache%202.0-red.svg)](LICENSE)[![License](https://img.shields.io/badge/License-MIT-red.svg)](LICENSE)
+[![License](https://img.shields.io/badge/License-Apache%202.0-red.svg)](LICENSE) [![License](https://img.shields.io/badge/License-MIT-red.svg)](LICENSE)
 
 A currency converter built with Flutter
 
@@ -17,8 +17,9 @@ A currency converter built with Flutter
 ## Todo
 
 - [x] Home page
-- [ ] Configure API
-- [ ] Code converter functionalities
+- [x] Configure API
+- [x] Code converter functionalities
+- [ ] Switch container positions animations and functionalities
 - [ ] Countries flag assets (image or svg)
 - [ ] List with currency options
 - [ ] Animations

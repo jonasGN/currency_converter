@@ -1,6 +1,13 @@
 import 'package:flutter/material.dart';
 
+// TODO: animate arrow on the left, rotating 180° and come back to original position
+// TODO: animate switch arrows on the green button to when pressed, rotate as well
+
 class ConverterSection extends StatelessWidget {
+  final Function onPressedSwitch;
+
+  ConverterSection({this.onPressedSwitch});
+
   @override
   Widget build(BuildContext context) {
     return Padding(
@@ -31,16 +38,19 @@ class ConverterSection extends StatelessWidget {
                   ),
             ),
           ),
-          Container(
-            padding: EdgeInsets.all(13),
-            decoration: BoxDecoration(
-              color: Color(0xff54D3AD), // [green]
-              borderRadius: BorderRadius.circular(16),
-            ),
-            child: Icon(
-              Icons.swap_vert,
-              color: Colors.white,
-              size: 30,
+          FlatButton(
+            onPressed: onPressedSwitch,
+            child: Container(
+              padding: EdgeInsets.all(13),
+              decoration: BoxDecoration(
+                color: Color(0xff54D3AD), // [green]
+                borderRadius: BorderRadius.circular(16),
+              ),
+              child: Icon(
+                Icons.swap_vert,
+                color: Colors.white,
+                size: 30,
+              ),
             ),
           ),
         ],
