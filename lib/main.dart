@@ -1,33 +1,57 @@
+import 'package:conversor_moedas/components/ConverterSection.dart';
+import 'package:conversor_moedas/components/MainCard.dart';
 import 'package:flutter/material.dart';
-import 'package:http/http.dart' as Http;
-import 'package:async/async.dart';
-import 'dart:convert';
+// import './services/api.dart';
 
-// api url
-const baseURL = 'https://api.hgbrasil.com/finance?format=json&key=dbbf2f6c';
-
-void main() async {
-  Http.Response response = await Http.get(baseURL);
-  print(json.decode(response.body)['results']['currencies']);
-
-  var teste = json.decode(response.body)['results']['currencies']['USD']['buy'];
-
+void main() {
   runApp(MaterialApp(
     title: 'Conversor de moedas',
-    home: Container(
-      child: Text('$teste'),
-    ),
+    home: Home(),
+    theme: ThemeData(fontFamily: 'Poppins'),
   ));
 }
 
-// class Home extends StatefulWidget {
-//   @override
-//   _HomeState createState() => _HomeState();
-// }
+class Home extends StatefulWidget {
+  @override
+  _HomeState createState() => _HomeState();
+}
 
-// class _HomeState extends State<Home> {
-//   @override
-//   Widget build(BuildContext context) {
-//     return Container();
-//   }
-// }
+class _HomeState extends State<Home> {
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      backgroundColor: Color(0xffF9FAFB), // [pageBackground]
+      appBar: AppBar(
+        centerTitle: true,
+        backgroundColor: Colors.transparent,
+        elevation: 0.0,
+        title: Text(
+          'Conversor monetário',
+          style: TextStyle(
+            color: Color(0xff757F8C), // [black]
+            fontSize: 20, // [font]
+          ),
+        ),
+        actions: <Widget>[
+          IconButton(
+              icon: Icon(
+                Icons.settings,
+                color: Color(0xff757F8C), // [black]
+                size: 24,
+              ),
+              onPressed: null),
+        ],
+      ),
+      body: SingleChildScrollView(
+        padding: EdgeInsets.all(16),
+        child: Column(
+          children: <Widget>[
+            MainCard(),
+            ConverterSection(),
+            MainCard(),
+          ],
+        ),
+      ),
+    );
+  }
+}
