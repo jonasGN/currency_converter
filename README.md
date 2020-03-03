@@ -17,6 +17,7 @@ A currency converter built with Flutter
 ## Todo
 
 - [x] Home page
+- [ ] Configure API
 - [ ] Code converter functionalities
 - [ ] Countries flag assets (image or svg)
 - [ ] List with currency options
@@ -36,4 +37,4 @@ A currency converter built with Flutter
 
 ## License
 
-All the code is available under the MIT + Apache 2.0 licenses. See LICENSE
+All the code is available under the MIT + Apache 2.0 licenses. See [LICENSE](https://github.com/jonasGN/currency_converter/blob/master/LICENSE)
