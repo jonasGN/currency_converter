@@ -20,7 +20,7 @@ A currency converter built with Flutter
 - [x] Configure API
 - [x] Code converter functionalities
 - [ ] Switch container positions animations and functionalities
-- [ ] Countries flag assets (image or svg)
+- [x] Countries flag assets
 - [ ] List with currency options
 - [ ] Animations
 - [ ] App icon
